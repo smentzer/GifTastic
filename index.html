@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GIPHY</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <!--fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Marvel" rel="stylesheet">
+    <!--Favicon-->
+    <link rel="icon" type="image/ico" href="assets/favicon.ico">
+    <!-- Reset stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/reset.css">
+    <!-- My Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+</head>
+
+<body>
+
+
+    <div class="container">
+        <br>
+        <br>
+        <div class="row">
+            <div class="col md 12">
+                <div id=searchTags>
+                    <h1>Search Heroes!</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="active-purple-3 active-purple-4 mb-4">
+                    <input class="form-control" id='topic-input' type="text" placeholder="Search" aria-label="Search">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <input class="btn btn-primary" id='add-topic' type="submit" value="Submit">
+                </div>
+
+                <br>
+                <div class="col-md-6" id="images"></div>
+                <div>
+                    <p id="gifs">
+                    </p>
+                </div>
+
+            </div>
+
+
+
+
+
+            <!--javaScript-->
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script type="text/javascript" src="assets/gif.js"></script>
+</body>
+
+</html>
