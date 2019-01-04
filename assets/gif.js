@@ -34,45 +34,12 @@ function displayGifInfo() {
             gifImage.attr("data-state", "still")
             gifImage.addClass("gif");
 
-
             gifDiv.prepend(gifImage);
             // gif above the previous gif
             $("#gif-view").prepend(gifDiv);
         }
-
-        //pausing gifs
-
-        //still need response data!!
-        $(document).on("click", ".gif", function () {
-            var state = $(this).attr("data-state");
-            console.log(state);
-
-
-
-            if (state === "still") {
-                var animatedUrl = $(this).attr("data-animate");
-                $(this).attr('src', animatedUrl);
-                $(this).attr("data-state", "animate");
-            } 
-            else if (state === "animate") {
-                var stillUrl = $(this).attr("data-still");
-                $(this).attr('src', stillUrl);
-                $(this).attr("data-state", "still");
-            } 
-            else {
-                alert("this should never happen");
-            }
-        });
-
-
     });
-
 };
-
-
-
-
-
 
 //makes buttons
 function renderButtons() {
@@ -103,8 +70,7 @@ $('#add-topic').on('click', function (event) {
     renderButtons();
 });
 
-
-$(document).on("click", ".search", displayGifInfo)
+$(document).on("click", ".search", displayGifInfo);
 
 renderButtons();
 
@@ -112,3 +78,34 @@ renderButtons();
 
 
 
+        //pausing gifs
+        //still need response data!!
+
+        $(document).on("click", ".gif", action); 
+
+        function action() {
+            var state = $(this).attr("data-state");
+            console.log(state);
+
+
+
+            if (state === "still") {
+                var animatedUrl = $(this).attr("data-animate");
+                $(this).attr('src', animatedUrl);
+                $(this).attr("data-state", "animate");
+            }
+            else if (state === "animate") {
+                var stillUrl = $(this).attr("data-still");
+                $(this).attr('src', stillUrl);
+                $(this).attr("data-state", "still");
+            }
+            else {
+                alert("this should never happen");
+            }
+        };
+
+
+
+
+
+        
