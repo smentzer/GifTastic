@@ -1,7 +1,35 @@
 //starting button topics
 var topics = ["Iron Man", "Black Widow", "Hulk", "Thor", "Wolverine", "Ant Man"]
+//makes buttons
+function renderButtons() {
+    //prevents repeat buttons
+    $('#searchTags').empty();
+    //looping through array of gifs 
+    for (var i = 0; i < topics.length; i++) {
+        //generates button
+        var newButton = $('<button>');
+        //adds a class 
+        newButton.addClass('search');
+        //data-attribute, value of topics at index 
+        newButton.attr("data-name", topics[i]);
+        //button text with a value of the topic at i 
+        newButton.text(topics[i]);
+        //adding button to html 
+        $('#searchTags').append(newButton);
+    }
+}
 
+//adds to the topics array and then makes a button
+$('#add-topic').on('click', function (event) {
+    event.preventDefault();
+    var userInput = $('#topic-input').val().trim();
+    console.log(userInput);
+    topics.push(userInput);
+    // $('#searchTags').html('');
+    renderButtons();
+});
 
+$(document).on("click", ".search", displayGifInfo);
 function displayGifInfo() {
     $("#gif-view").empty();
     var gif = $(this).attr("data-name");
@@ -41,36 +69,6 @@ function displayGifInfo() {
     });
 };
 
-//makes buttons
-function renderButtons() {
-    //prevents repeat buttons
-    $('#searchTags').empty();
-    //looping through array of gifs 
-    for (var i = 0; i < topics.length; i++) {
-        //generates button
-        var newButton = $('<button>');
-        //adds a class 
-        newButton.addClass('search');
-        //data-attribute, value of topics at index 
-        newButton.attr("data-name", topics[i]);
-        //button text with a value of the topic at i 
-        newButton.text(topics[i]);
-        //adding button to html 
-        $('#searchTags').append(newButton);
-    }
-}
-
-//adds to the topics array and then makes a button
-$('#add-topic').on('click', function (event) {
-    event.preventDefault();
-    var userInput = $('#topic-input').val().trim();
-    console.log(userInput);
-    topics.push(userInput);
-    // $('#searchTags').html('');
-    renderButtons();
-});
-
-$(document).on("click", ".search", displayGifInfo);
 
 renderButtons();
 
