@@ -60,7 +60,7 @@ function displayGifInfo() {
             gifImage.attr("data-animate", results[i].images.fixed_height.url);
             gifImage.attr("data-still", results[i].images.fixed_height_still.url);
             gifImage.attr("data-state", "still")
-            gifImage.addClass("gif");
+            gifImage.addClass("gifMove");
 
             gifDiv.prepend(gifImage);
             // gif above the previous gif
@@ -72,38 +72,33 @@ function displayGifInfo() {
 
 renderButtons();
 
+//pausing gifs
+//still need response data!!
+
+$(document).on("click", ".gifMove", action);
+
+function action() {
+    var state = $(this).attr("data-state");
+    console.log(state);
 
 
 
-
-        //pausing gifs
-        //still need response data!!
-
-        $(document).on("click", ".gif", action); 
-
-        function action() {
-            var state = $(this).attr("data-state");
-            console.log(state);
-
-
-
-            if (state === "still") {
-                var animatedUrl = $(this).attr("data-animate");
-                $(this).attr('src', animatedUrl);
-                $(this).attr("data-state", "animate");
-            }
-            else if (state === "animate") {
-                var stillUrl = $(this).attr("data-still");
-                $(this).attr('src', stillUrl);
-                $(this).attr("data-state", "still");
-            }
-            else {
-                alert("this should never happen");
-            }
-        };
+    if (state === "still") {
+        var animatedUrl = $(this).attr("data-animate");
+        $(this).attr('src', animatedUrl);
+        $(this).attr("data-state", "animate");
+    }
+    else if (state === "animate") {
+        var stillUrl = $(this).attr("data-still");
+        $(this).attr('src', stillUrl);
+        $(this).attr("data-state", "still");
+    }
+    else {
+        alert("this should never happen");
+    }
+};
 
 
 
 
 
-        
