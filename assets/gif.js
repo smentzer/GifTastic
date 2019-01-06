@@ -25,7 +25,8 @@ $('#add-topic').on('click', function (event) {
     var userInput = $('#topic-input').val().trim();
     console.log(userInput);
     topics.push(userInput);
-    // $('#searchTags').html('');
+   //clear search 
+    $('#topic-input').val('');
     renderButtons();
 });
 
